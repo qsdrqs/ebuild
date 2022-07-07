@@ -5,7 +5,7 @@ PYTHON_COMPAT=( python3_{8..11} )
 
 DESCRIPTION="Variety is a wallpaper manager for Linux systems."
 HOMEPAGE="https://github.com/varietywalls/variety"
-SRC_URI=https://github.com/varietywalls/variety/archive/refs/tags/${PV}.tar.gz
+SRC_URI="https://github.com/varietywalls/variety/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 inherit distutils-r1
 
 LICENSE="GPL-3.0"
