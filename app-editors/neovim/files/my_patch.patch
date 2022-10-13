@@ -1,0 +1,27 @@
+diff --git a/src/nvim/rbuffer.c b/src/nvim/rbuffer.c
+index 2f718e9c2..633a19db3 100644
+--- a/src/nvim/rbuffer.c
++++ b/src/nvim/rbuffer.c
+@@ -164,7 +164,7 @@ void rbuffer_consumed_compact(RBuffer *buf, size_t count)
+   assert(buf->read_ptr <= buf->write_ptr);
+   rbuffer_consumed(buf, count);
+   if (buf->read_ptr > buf->start_ptr) {
+-    assert((size_t)(buf->read_ptr - buf->write_ptr) == buf->size);
++    // assert((size_t)(buf->read_ptr - buf->write_ptr) == buf->size);
+     memmove(buf->start_ptr, buf->read_ptr, buf->size);
+     buf->read_ptr = buf->start_ptr;
+     buf->write_ptr = buf->read_ptr + buf->size;
+diff --git a/src/nvim/screen.c b/src/nvim/screen.c
+index cdfb1e9ee..cf13d8046 100644
+--- a/src/nvim/screen.c
++++ b/src/nvim/screen.c
+@@ -211,7 +211,8 @@ size_t fill_foldcolumn(char_u *p, win_T *wp, foldinfo_T foldinfo, linenr_T lnum)
+     } else if (first_level == 1) {
+       symbol = wp->w_p_fcs_chars.foldsep;
+     } else if (first_level + i <= 9) {
+-      symbol = '0' + first_level + i;
++      // symbol = '0' + first_level + i;
++      symbol = ' ';
+     } else {
+       symbol = '>';
+     }
